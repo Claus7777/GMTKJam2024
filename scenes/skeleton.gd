@@ -7,6 +7,7 @@ enum Enemy_States {
 }
 
 var enemy_state: Enemy_States = Enemy_States.ACTIVE
+var sent_state: Enemy_States
 var player
 var audio_player
 var should_die: bool = false
@@ -30,6 +31,7 @@ func _ready() -> void:
 	hitbox = $CollisionShape2D
 	audio_player = $AudioStreamPlayer2D
 	sprite = $Sprite2D
+	sent_state = enemy_state
 
 func _physics_process(delta: float) -> void:
 	match enemy_state:
@@ -52,7 +54,7 @@ func _physics_process(delta: float) -> void:
 				look_at(player.global_position)
 				move_and_slide()
 				
-			else: enemy_state = Enemy_States.ACTIVE
+			else: enemy_state = sent_state
 
 func take_damage(damage):
 	audio_player.pitch_scale = randf_range(0.5, 1.5)
@@ -68,6 +70,7 @@ func take_damage(damage):
 		
 func change_state(state):
 	enemy_state = state;
+	sent_state = state;
 
 
 func _on_audio_stream_player_2d_finished() -> void:
