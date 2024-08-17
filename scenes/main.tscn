@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd7gp117583gp"]
+[gd_scene load_steps=8 format=3 uid="uid://dd7gp117583gp"]
 
 [ext_resource type="PackedScene" uid="uid://yvshx12gqkta" path="res://scenes/sweeta.tscn" id="1_4ski7"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_qk5f8"]
 [ext_resource type="PackedScene" uid="uid://d231xi5rkt6ta" path="res://scenes/skeleton.tscn" id="2_c503a"]
 [ext_resource type="Texture2D" uid="uid://bpwo6lj5k72mx" path="res://scripts/icon.svg" id="4_of46l"]
 [ext_resource type="Script" path="res://scenes/levelup_manager.gd" id="4_xa0oa"]
+[ext_resource type="Resource" uid="uid://dtngb7jivc2k8" path="res://scripts/items/hedgehog/hedgehog.tres" id="5_oopob"]
 
 [sub_resource type="Curve2D" id="Curve2D_ldh6n"]
 _data = {
@@ -39,12 +40,14 @@ script = ExtResource("4_xa0oa")
 player_node = NodePath("../Sweeta")
 control_node = NodePath("../Camera2D/Control")
 item_list = NodePath("../Camera2D/Control/ItemList")
+upgrade_itens_array = [ExtResource("5_oopob")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(641, 359)
 
 [node name="Control" type="Control" parent="Camera2D"]
 visible = false
+z_index = 2
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -61,6 +64,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="ItemList" type="ItemList" parent="Camera2D/Control"]
+texture_filter = 1
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 1
 anchors_preset = 8
@@ -76,6 +80,7 @@ grow_horizontal = 2
 grow_vertical = 2
 auto_height = true
 item_count = 2
+icon_scale = 4.0
 item_0/text = "Upgrade 1"
 item_0/icon = ExtResource("4_of46l")
 item_1/text = "Upgrade 2"

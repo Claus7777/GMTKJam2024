@@ -1,13 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://yvshx12gqkta"]
+[gd_scene load_steps=15 format=3 uid="uid://yvshx12gqkta"]
 
 [ext_resource type="Script" path="res://scripts/sweeta.gd" id="1_sm0g6"]
 [ext_resource type="PackedScene" uid="uid://bnfahcg4a1rf0" path="res://scenes/hitbox.tscn" id="2_mcb0k"]
-[ext_resource type="Texture2D" uid="uid://xpp4pgpdffyo" path="res://assets/Sweeta.png" id="3_ekh0j"]
+[ext_resource type="Texture2D" uid="uid://xpp4pgpdffyo" path="res://assets/art/Sweeta.png" id="3_ekh0j"]
 [ext_resource type="Script" path="res://scripts/hand_body_2d.gd" id="3_watai"]
+[ext_resource type="AudioStream" uid="uid://bk0v8degej384" path="res://assets/sounds/eat02.wav" id="4_h2gb7"]
 [ext_resource type="Texture2D" uid="uid://ckxut8niajf2e" path="res://scripts/hand.svg" id="4_opwy4"]
 [ext_resource type="Script" path="res://scripts/sword.gd" id="5_gd0vd"]
 [ext_resource type="Script" path="res://scripts/hand.gd" id="5_x7lw0"]
-[ext_resource type="Texture2D" uid="uid://ctmadd6chk4f" path="res://assets/Longsword.png" id="7_entn8"]
+[ext_resource type="Script" path="res://scenes/sweeta_sprite.gd" id="6_w4yi3"]
+[ext_resource type="Texture2D" uid="uid://ctmadd6chk4f" path="res://assets/art/Longsword.png" id="7_entn8"]
+[ext_resource type="AudioStream" uid="uid://kjbnir15pmmf" path="res://assets/sounds/swingera2.wav" id="9_6f2h5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2g0o"]
+radius = 36.0555
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ipnfy"]
 animations = [{
@@ -20,9 +26,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_l2g0o"]
-radius = 83.8153
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ybey"]
 radius = 0.01
 
@@ -31,14 +34,16 @@ radius = 0.01
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_sm0g6")
 hitbox_scene = ExtResource("2_mcb0k")
+sounds = Array[AudioStream]([ExtResource("9_6f2h5"), ExtResource("4_h2gb7")])
+
+[node name="Hurtbox" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_l2g0o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 1
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_ipnfy")
-
-[node name="Hurtbox" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CircleShape2D_l2g0o")
+script = ExtResource("6_w4yi3")
 
 [node name="HandBody2D" type="StaticBody2D" parent="CharacterBody2D"]
 position = Vector2(35, -26)
@@ -63,9 +68,20 @@ texture = ExtResource("7_entn8")
 offset = Vector2(0, -21.315)
 script = ExtResource("5_gd0vd")
 
-[node name="AttackCooldown" type="Timer" parent="CharacterBody2D"]
+[node name="isAttackingTimer" type="Timer" parent="CharacterBody2D"]
 process_callback = 0
 wait_time = 0.05
 one_shot = true
 
+[node name="AttackCooldown" type="Timer" parent="CharacterBody2D"]
+wait_time = 0.5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = ExtResource("9_6f2h5")
+pitch_scale = 2.0
+
+[node name="InvincibilityTimer" type="Timer" parent="CharacterBody2D"]
+
+[connection signal="timeout" from="CharacterBody2D/isAttackingTimer" to="CharacterBody2D" method="_on_attack_timeout"]
 [connection signal="timeout" from="CharacterBody2D/AttackCooldown" to="CharacterBody2D" method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="CharacterBody2D/InvincibilityTimer" to="CharacterBody2D" method="_on_invincibility_timer_timeout"]

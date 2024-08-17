@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctmadd6chk4f"
-path="res://.godot/imported/Longsword.png-a21d82fc42e705e685d1d5d41e6fb55c.ctex"
+uid="uid://xpp4pgpdffyo"
+path="res://.godot/imported/Sweeta.png-b5d524db6b22d3956f3e3e6fb347fca9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Longsword.png"
-dest_files=["res://.godot/imported/Longsword.png-a21d82fc42e705e685d1d5d41e6fb55c.ctex"]
+source_file="res://assets/art/Sweeta.png"
+dest_files=["res://.godot/imported/Sweeta.png-b5d524db6b22d3956f3e3e6fb347fca9.ctex"]
 
 [params]
 
