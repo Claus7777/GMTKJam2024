@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1m8iawsvrg2c"
-path="res://.godot/imported/MiniBones.png-0c314994d8f79935e9e8427cd1461449.ctex"
+uid="uid://ca7kyo4bfsjkw"
+path="res://.godot/imported/SweetaSmall.png-e662a1e85a49a5b119e5aae800ada94d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MiniBones.png"
-dest_files=["res://.godot/imported/MiniBones.png-0c314994d8f79935e9e8427cd1461449.ctex"]
+source_file="res://assets/art/SweetaSmall.png"
+dest_files=["res://.godot/imported/SweetaSmall.png-e662a1e85a49a5b119e5aae800ada94d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blklxd8ekaqyr"
-path="res://.godot/imported/TilesetOverworld.png-12f870bb33be1a93c5c93aa8c7f198ac.ctex"
+uid="uid://c5okxm7atyx6t"
+path="res://.godot/imported/mrbones.png-4c34d6b3f59a5e62b0e0f0b6800af74c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/TilesetOverworld.png"
-dest_files=["res://.godot/imported/TilesetOverworld.png-12f870bb33be1a93c5c93aa8c7f198ac.ctex"]
+source_file="res://assets/art/mrbones.png"
+dest_files=["res://.godot/imported/mrbones.png-4c34d6b3f59a5e62b0e0f0b6800af74c.ctex"]
 
 [params]
 
