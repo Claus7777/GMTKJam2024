@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://yvshx12gqkta"]
+[gd_scene load_steps=18 format=3 uid="uid://yvshx12gqkta"]
 
 [ext_resource type="Script" path="res://scripts/sweeta.gd" id="1_sm0g6"]
 [ext_resource type="PackedScene" uid="uid://bnfahcg4a1rf0" path="res://scenes/hitbox.tscn" id="2_mcb0k"]
@@ -8,12 +8,21 @@
 [ext_resource type="Texture2D" uid="uid://ckxut8niajf2e" path="res://scripts/hand.svg" id="4_opwy4"]
 [ext_resource type="Script" path="res://scripts/sword.gd" id="5_gd0vd"]
 [ext_resource type="Script" path="res://scripts/hand.gd" id="5_x7lw0"]
+[ext_resource type="Texture2D" uid="uid://cd1wjuwj0d6t4" path="res://assets/art/Sweeta_walk.png" id="6_3kjqy"]
 [ext_resource type="Script" path="res://scenes/sweeta_sprite.gd" id="6_w4yi3"]
 [ext_resource type="Texture2D" uid="uid://ctmadd6chk4f" path="res://assets/art/Longsword.png" id="7_entn8"]
 [ext_resource type="AudioStream" uid="uid://kjbnir15pmmf" path="res://assets/sounds/swingera2.wav" id="9_6f2h5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l2g0o"]
 radius = 36.0555
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnt5q"]
+atlas = ExtResource("6_3kjqy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sp4v"]
+atlas = ExtResource("6_3kjqy")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_acepx"]
 animations = [{
@@ -22,7 +31,18 @@ animations = [{
 "texture": ExtResource("3_ekh0j")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnt5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sp4v")
+}],
+"loop": true,
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -43,6 +63,7 @@ shape = SubResource("CircleShape2D_l2g0o")
 texture_filter = 1
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_acepx")
+animation = &"idle"
 script = ExtResource("6_w4yi3")
 
 [node name="HandBody2D" type="StaticBody2D" parent="CharacterBody2D"]

@@ -62,6 +62,8 @@ func _process(delta: float) -> void:
 	if level_dictionary.has(next_level):
 		if experience >= level_dictionary[next_level]:
 			levelup()
+	
+
 
 func _physics_process(delta: float) -> void:
 	match character_state:
@@ -76,7 +78,12 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_pressed("attack") and not isAttacking:
 				sweeta_attack()
 			
+			if velocity != Vector2.ZERO:
+				sprite.play("walk")
+			else: sprite.play("idle")
+			
 		Character_States.SLEEPING:
+			sprite.pause()
 			pass
 
 
