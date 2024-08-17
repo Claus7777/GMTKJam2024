@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		Character_States.ACTIVE:
 			calculate_movement(delta)
 			
-			if Input.is_action_just_pressed("attack") and not isAttacking:
+			if Input.is_action_pressed("attack") and not isAttacking:
 				sweeta_attack()
 			
 		Character_States.SLEEPING:
