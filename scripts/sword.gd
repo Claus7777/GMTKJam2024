@@ -15,15 +15,4 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position.y = 0
-	match state:
-		Sword_States.ORIGINAL:
-			global_rotation_degrees = 90
-			if(scale > Vector2.ZERO):
-				scale.x += Input.get_axis("grow","shrink");
-				scale.y += Input.get_axis("grow","shrink")/10
-			else: scale = Vector2(1,1)
-			pass
-		Sword_States.CLONE:
-			pass
-		
-	pass
+	global_rotation_degrees = 0

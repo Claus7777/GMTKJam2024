@@ -1,18 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://yvshx12gqkta"]
+[gd_scene load_steps=12 format=3 uid="uid://yvshx12gqkta"]
 
-[ext_resource type="Texture2D" uid="uid://bpwo6lj5k72mx" path="res://scripts/icon.svg" id="1_o5iw6"]
-[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_sm0g6"]
+[ext_resource type="Script" path="res://scripts/sweeta.gd" id="1_sm0g6"]
 [ext_resource type="PackedScene" uid="uid://bnfahcg4a1rf0" path="res://scenes/hitbox.tscn" id="2_mcb0k"]
+[ext_resource type="Texture2D" uid="uid://xpp4pgpdffyo" path="res://assets/Sweeta.png" id="3_ekh0j"]
 [ext_resource type="Script" path="res://scripts/hand_body_2d.gd" id="3_watai"]
 [ext_resource type="Texture2D" uid="uid://ckxut8niajf2e" path="res://scripts/hand.svg" id="4_opwy4"]
 [ext_resource type="Script" path="res://scripts/sword.gd" id="5_gd0vd"]
 [ext_resource type="Script" path="res://scripts/hand.gd" id="5_x7lw0"]
+[ext_resource type="Texture2D" uid="uid://ctmadd6chk4f" path="res://assets/Longsword.png" id="7_entn8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ipnfy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_o5iw6")
+"texture": ExtResource("3_ekh0j")
 }],
 "loop": true,
 "name": &"default",
@@ -32,13 +33,15 @@ script = ExtResource("1_sm0g6")
 hitbox_scene = ExtResource("2_mcb0k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_ipnfy")
 
 [node name="Hurtbox" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_l2g0o")
 
 [node name="HandBody2D" type="StaticBody2D" parent="CharacterBody2D"]
-position = Vector2(35, -68)
+position = Vector2(35, -26)
 script = ExtResource("3_watai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HandBody2D"]
@@ -46,18 +49,18 @@ shape = SubResource("CircleShape2D_2ybey")
 disabled = true
 
 [node name="Hand" type="Sprite2D" parent="CharacterBody2D/HandBody2D"]
-position = Vector2(42, 0)
+position = Vector2(14, 6)
 rotation = 1.5708
 scale = Vector2(0.328125, 0.304688)
 texture = ExtResource("4_opwy4")
 script = ExtResource("5_x7lw0")
 
 [node name="Sword" type="Sprite2D" parent="CharacterBody2D/HandBody2D/Hand"]
-position = Vector2(-3.04762, -36.1026)
-rotation = 1.5708
-scale = Vector2(5, -0.31)
-texture = ExtResource("1_o5iw6")
-offset = Vector2(-60, 0)
+texture_filter = 1
+position = Vector2(10.001, 0)
+scale = Vector2(10, 10)
+texture = ExtResource("7_entn8")
+offset = Vector2(0, -21.315)
 script = ExtResource("5_gd0vd")
 
 [node name="AttackCooldown" type="Timer" parent="CharacterBody2D"]
