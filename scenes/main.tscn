@@ -20,6 +20,7 @@ player_node = NodePath("Sweeta")
 levelup_manager = NodePath("LevelupManager")
 
 [node name="Sweeta" parent="." instance=ExtResource("1_4ski7")]
+y_sort_enabled = true
 position = Vector2(641, 359)
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
@@ -47,7 +48,7 @@ position = Vector2(641, 359)
 
 [node name="Control" type="Control" parent="Camera2D"]
 visible = false
-z_index = 5
+z_index = 2
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
