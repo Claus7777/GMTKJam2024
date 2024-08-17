@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://yvshx12gqkta"]
+
+[ext_resource type="Texture2D" uid="uid://bpwo6lj5k72mx" path="res://scripts/icon.svg" id="1_o5iw6"]
+[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_sm0g6"]
+[ext_resource type="PackedScene" uid="uid://bnfahcg4a1rf0" path="res://scenes/hitbox.tscn" id="2_mcb0k"]
+[ext_resource type="Script" path="res://scripts/hand_body_2d.gd" id="3_watai"]
+[ext_resource type="Texture2D" uid="uid://ckxut8niajf2e" path="res://scripts/hand.svg" id="4_opwy4"]
+[ext_resource type="Script" path="res://scripts/sword.gd" id="5_gd0vd"]
+[ext_resource type="Script" path="res://scripts/hand.gd" id="5_x7lw0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipnfy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o5iw6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2g0o"]
+radius = 83.8153
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ybey"]
+radius = 0.01
+
+[node name="Sweeta" type="Node2D" groups=["player"]]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_sm0g6")
+hitbox_scene = ExtResource("2_mcb0k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_ipnfy")
+
+[node name="Hurtbox" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_l2g0o")
+
+[node name="HandBody2D" type="StaticBody2D" parent="CharacterBody2D"]
+position = Vector2(35, -68)
+script = ExtResource("3_watai")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HandBody2D"]
+shape = SubResource("CircleShape2D_2ybey")
+disabled = true
+
+[node name="Hand" type="Sprite2D" parent="CharacterBody2D/HandBody2D"]
+position = Vector2(42, 0)
+rotation = 1.5708
+scale = Vector2(0.328125, 0.304688)
+texture = ExtResource("4_opwy4")
+script = ExtResource("5_x7lw0")
+
+[node name="Sword" type="Sprite2D" parent="CharacterBody2D/HandBody2D/Hand"]
+position = Vector2(-3.04762, -36.1026)
+rotation = 1.5708
+scale = Vector2(5, -0.31)
+texture = ExtResource("1_o5iw6")
+offset = Vector2(-60, 0)
+script = ExtResource("5_gd0vd")
+
+[node name="AttackCooldown" type="Timer" parent="CharacterBody2D"]
+process_callback = 0
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="CharacterBody2D/AttackCooldown" to="CharacterBody2D" method="_on_attack_cooldown_timeout"]

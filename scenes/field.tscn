@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlw1nynk40gpv"]
+
+[ext_resource type="PackedScene" uid="uid://yvshx12gqkta" path="res://scenes/sweeta.tscn" id="1_vy7sg"]
+
+[node name="Field" type="Node2D"]
+
+[node name="Sweeta" parent="." instance=ExtResource("1_vy7sg")]
+position = Vector2(161, 172)
+
+[node name="Node" type="Node" parent="."]
