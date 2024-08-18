@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://yvshx12gqkta"]
+[gd_scene load_steps=25 format=3 uid="uid://yvshx12gqkta"]
 
+[ext_resource type="Script" path="res://scenes/sweeta_parent.gd" id="1_420x5"]
 [ext_resource type="Script" path="res://scripts/sweeta.gd" id="1_sm0g6"]
 [ext_resource type="PackedScene" uid="uid://bnfahcg4a1rf0" path="res://scenes/hitbox.tscn" id="2_mcb0k"]
 [ext_resource type="Script" path="res://scripts/hand_body_2d.gd" id="3_watai"]
@@ -95,6 +96,8 @@ animations = [{
 radius = 0.01
 
 [node name="Sweeta" type="Node2D" groups=["player"]]
+script = ExtResource("1_420x5")
+metadata/_edit_lock_ = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_sm0g6")
@@ -110,7 +113,7 @@ position = Vector2(4, -75)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_acepx")
 animation = &"idle"
-frame_progress = 0.271529
+frame_progress = 0.990194
 script = ExtResource("6_w4yi3")
 
 [node name="HandBody2D" type="StaticBody2D" parent="CharacterBody2D"]
@@ -148,6 +151,8 @@ stream = ExtResource("9_6f2h5")
 pitch_scale = 2.0
 
 [node name="InvincibilityTimer" type="Timer" parent="CharacterBody2D"]
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
 [connection signal="timeout" from="CharacterBody2D/isAttackingTimer" to="CharacterBody2D" method="_on_attack_timeout"]
 [connection signal="timeout" from="CharacterBody2D/AttackCooldown" to="CharacterBody2D" method="_on_attack_cooldown_timeout"]

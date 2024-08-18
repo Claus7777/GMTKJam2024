@@ -30,7 +30,7 @@ func _ready() -> void:
 	player = get_parent().get_child(0).get_child(0)
 	hitbox = $CollisionShape2D
 	audio_player = $AudioStreamPlayer2D
-	sprite = $Sprite2D
+	sprite = $AnimatedSprite2D
 	sent_state = enemy_state
 
 func _physics_process(delta: float) -> void:
@@ -41,11 +41,13 @@ func _physics_process(delta: float) -> void:
 			
 			if position.distance_to(player.global_position) > 10:
 				var collider = move_and_collide(velocity * delta)
+				sprite.play("walk")
 				if collider:
 					if collider.get_collider().has_method("player_take_damage"):
 						player_hit.emit(damage)
 			
 		Enemy_States.SLEEPING:
+			sprite.play("idle")
 			pass
 		Enemy_States.TAKING_DAMAGE:
 			hitstun_counter+=1

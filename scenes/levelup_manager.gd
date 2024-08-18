@@ -48,6 +48,7 @@ func level_up_menu(level: int):
 	item_list.set_item_icon(1, upgrade_itens_array[random_item_chooser2].icon)
 	item_list.set_item_text(1, upgrade_itens_array[random_item_chooser2].name)
 	options[1] = random_item_chooser
+	
 	control_node.visible = true
 	pass
 
