@@ -12,7 +12,7 @@ signal leveled_up(level)
 @export var SPEED = 300.0
 @export var SPEED_CAP = 500.0
 @export var hitbox_scene: PackedScene
-@export var hitbox_size_multiplier:float = 2
+@export var hitbox_size_multiplier:float = 1
 @export var experience = 0.0
 @export var protagonist_level = 1
 @export var health_points = 50
@@ -111,7 +111,8 @@ func sweeta_attack():
 	sword_node.visible = false
 	
 	hitbox = hitbox_scene.instantiate()
-	hitbox.global_position += Vector2(0,-150 * hitbox_size_multiplier)
+	hitbox.global_position += Vector2(0,-16 * hitbox_size_multiplier)
+	hitbox.scale /= 4
 	hitbox.scale *= hitbox_size_multiplier
 	hand_node.add_child(hitbox)
 	if audio_player.stream != sounds[0]:

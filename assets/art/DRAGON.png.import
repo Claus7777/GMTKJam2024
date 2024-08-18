@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddmvbe6oruhvn"
-path="res://.godot/imported/SweetaHand.png-b6391ecff531137f93b9a7aeaf8120f3.ctex"
+uid="uid://dnauc1cygb6ov"
+path="res://.godot/imported/DRAGON.png-c37089725b6b103cad5462f741589a29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/SweetaHand.png"
-dest_files=["res://.godot/imported/SweetaHand.png-b6391ecff531137f93b9a7aeaf8120f3.ctex"]
+source_file="res://assets/art/DRAGON.png"
+dest_files=["res://.godot/imported/DRAGON.png-c37089725b6b103cad5462f741589a29.ctex"]
 
 [params]
 

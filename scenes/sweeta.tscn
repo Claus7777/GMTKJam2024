@@ -1,34 +1,61 @@
-[gd_scene load_steps=18 format=3 uid="uid://yvshx12gqkta"]
+[gd_scene load_steps=24 format=3 uid="uid://yvshx12gqkta"]
 
 [ext_resource type="Script" path="res://scripts/sweeta.gd" id="1_sm0g6"]
 [ext_resource type="PackedScene" uid="uid://bnfahcg4a1rf0" path="res://scenes/hitbox.tscn" id="2_mcb0k"]
-[ext_resource type="Texture2D" uid="uid://xpp4pgpdffyo" path="res://assets/art/Sweeta.png" id="3_ekh0j"]
 [ext_resource type="Script" path="res://scripts/hand_body_2d.gd" id="3_watai"]
 [ext_resource type="AudioStream" uid="uid://bk0v8degej384" path="res://assets/sounds/eat02.wav" id="4_h2gb7"]
-[ext_resource type="Texture2D" uid="uid://ckxut8niajf2e" path="res://scripts/hand.svg" id="4_opwy4"]
 [ext_resource type="Script" path="res://scripts/sword.gd" id="5_gd0vd"]
 [ext_resource type="Script" path="res://scripts/hand.gd" id="5_x7lw0"]
-[ext_resource type="Texture2D" uid="uid://cd1wjuwj0d6t4" path="res://assets/art/Sweeta_walk.png" id="6_3kjqy"]
+[ext_resource type="Texture2D" uid="uid://dl7gi7bcoroey" path="res://assets/art/sweetawalk-Sheet.png" id="6_hdmyt"]
 [ext_resource type="Script" path="res://scenes/sweeta_sprite.gd" id="6_w4yi3"]
 [ext_resource type="Texture2D" uid="uid://ctmadd6chk4f" path="res://assets/art/Longsword.png" id="7_entn8"]
+[ext_resource type="Texture2D" uid="uid://ddmvbe6oruhvn" path="res://assets/art/SweetaHand.png" id="8_l5q83"]
 [ext_resource type="AudioStream" uid="uid://kjbnir15pmmf" path="res://assets/sounds/swingera2.wav" id="9_6f2h5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l2g0o"]
 radius = 36.0555
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mnt5q"]
-atlas = ExtResource("6_3kjqy")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j1hn"]
+atlas = ExtResource("6_hdmyt")
+region = Rect2(0, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2sp4v"]
-atlas = ExtResource("6_3kjqy")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_m75fp"]
+atlas = ExtResource("6_hdmyt")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqodd"]
+atlas = ExtResource("6_hdmyt")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiuss"]
+atlas = ExtResource("6_hdmyt")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di0fy"]
+atlas = ExtResource("6_hdmyt")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47k37"]
+atlas = ExtResource("6_hdmyt")
+region = Rect2(256, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w01wf"]
+atlas = ExtResource("6_hdmyt")
+region = Rect2(320, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l50vo"]
+atlas = ExtResource("6_hdmyt")
+region = Rect2(384, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdcdj"]
+atlas = ExtResource("6_hdmyt")
+region = Rect2(448, 0, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_acepx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_ekh0j")
+"texture": SubResource("AtlasTexture_5j1hn")
 }],
 "loop": true,
 "name": &"idle",
@@ -36,14 +63,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mnt5q")
+"texture": SubResource("AtlasTexture_m75fp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2sp4v")
+"texture": SubResource("AtlasTexture_lqodd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiuss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di0fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47k37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w01wf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l50vo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdcdj")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ybey"]
@@ -61,9 +106,11 @@ shape = SubResource("CircleShape2D_l2g0o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 1
+position = Vector2(4, -75)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_acepx")
 animation = &"idle"
+frame_progress = 0.271529
 script = ExtResource("6_w4yi3")
 
 [node name="HandBody2D" type="StaticBody2D" parent="CharacterBody2D"]
@@ -75,18 +122,17 @@ shape = SubResource("CircleShape2D_2ybey")
 disabled = true
 
 [node name="Hand" type="Sprite2D" parent="CharacterBody2D/HandBody2D"]
+texture_filter = 1
 position = Vector2(14, 6)
 rotation = 1.5708
-scale = Vector2(0.328125, 0.304688)
-texture = ExtResource("4_opwy4")
+scale = Vector2(4, 4)
+texture = ExtResource("8_l5q83")
 script = ExtResource("5_x7lw0")
 
 [node name="Sword" type="Sprite2D" parent="CharacterBody2D/HandBody2D/Hand"]
 texture_filter = 1
-position = Vector2(10.001, 0)
-scale = Vector2(10, 10)
 texture = ExtResource("7_entn8")
-offset = Vector2(0, -21.315)
+offset = Vector2(0, -16.865)
 script = ExtResource("5_gd0vd")
 
 [node name="isAttackingTimer" type="Timer" parent="CharacterBody2D"]
