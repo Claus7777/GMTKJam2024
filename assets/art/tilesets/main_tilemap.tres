@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dsu2pint5d2rc"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://nbddtf4q354q"]
 
 [ext_resource type="Texture2D" uid="uid://c1mn0m1sjjwvu" path="res://assets/art/tilesets/TilesetGrasslands.png" id="1_hjhlp"]
 [ext_resource type="PackedScene" uid="uid://cfyimj62xdckr" path="res://assets/art/tilesets/atlas/tronco.tscn" id="2_1ho76"]
