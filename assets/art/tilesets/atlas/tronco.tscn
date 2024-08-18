@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://cfyimj62xdckr"]
+[gd_scene load_steps=13 format=4 uid="uid://cfyimj62xdckr"]
 
 [ext_resource type="Texture2D" uid="uid://c1mn0m1sjjwvu" path="res://assets/art/tilesets/TilesetGrasslands.png" id="1_8tvjt"]
 [ext_resource type="Script" path="res://tronco.gd" id="2_kd732"]
 [ext_resource type="Texture2D" uid="uid://blklxd8ekaqyr" path="res://assets/art/tilesets/TilesetOverworld.png" id="3_wgdry"]
+[ext_resource type="Material" uid="uid://do10oidkjpp5s" path="res://assets/art/tilesets/new_particle_process_material.tres" id="4_k0som"]
+[ext_resource type="Texture2D" uid="uid://cap7rt00uw77q" path="res://assets/art/moon_swipe.png" id="5_llvf5"]
+[ext_resource type="AudioStream" uid="uid://cqwo7hyw357td" path="res://assets/sounds/swingera.wav" id="6_l0fo3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ju8u2"]
 texture = ExtResource("1_8tvjt")
@@ -227,3 +230,17 @@ script = ExtResource("2_kd732")
 z_index = 1
 tile_map_data = PackedByteArray("AAD/////AAABAAgAAAAAAP//AAACAAgAAAABAP//AAADAAgAAAD///7/AAABAAcAAAAAAP7/AAACAAcAAAABAP7/AAADAAcAAAA=")
 tile_set = SubResource("TileSet_m5pfw")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.464018, 0.17571, 0, 1)
+texture_filter = 1
+emitting = false
+amount = 5
+process_material = ExtResource("4_k0som")
+texture = ExtResource("5_llvf5")
+one_shot = true
+explosiveness = 0.63
+trail_enabled = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_l0fo3")

@@ -13,7 +13,8 @@ config_version=5
 config/name="GMTKJam2024"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://scripts/icon.svg"
+boot_splash/image="res://assets/art/export/boot_splash.png"
+config/icon="res://assets/art/SweetaSmall.png"
 
 [display]
 
@@ -21,6 +22,7 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
 window/stretch/scale_mode="integer"
+mouse_cursor/custom_image="res://assets/art/Longsword.png"
 
 [global_group]
 

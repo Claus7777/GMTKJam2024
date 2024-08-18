@@ -1,0 +1,11 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://do10oidkjpp5s"]
+
+[resource]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 24.6
+gravity = Vector3(0, 98, 0)
+turbulence_enabled = true
+turbulence_noise_strength = 17.75
+turbulence_noise_scale = 7.495
