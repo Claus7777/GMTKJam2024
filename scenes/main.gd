@@ -52,6 +52,11 @@ func _on_mob_spawn_timer_timeout() -> void:
 	enemy.monster_died.connect(player_node.get_child(0).earn_exp.bind())
 	state_change.connect(enemy.change_state.bind())
 	enemy.player_hit.connect(player_node.get_child(0).player_take_damage.bind())
+	var shiny_skeleton_flag
+	shiny_skeleton_flag = randi_range(0, 20)
+	if(shiny_skeleton_flag == 20):
+		enemy.scale*=2
+		enemy.health_points = 100
 	add_child(enemy)
 	
 	if difficulty_timer > 5:
