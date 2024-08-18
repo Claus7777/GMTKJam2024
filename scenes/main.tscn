@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scenes/levelup_manager.gd" id="4_xa0oa"]
 [ext_resource type="Resource" uid="uid://dtngb7jivc2k8" path="res://scripts/items/hedgehog/hedgehog.tres" id="5_oopob"]
 [ext_resource type="Resource" uid="uid://dykse826rabic" path="res://scripts/items/boots/boots.tres" id="6_20k4c"]
-[ext_resource type="TileSet" path="res://assets/art/tilesets/main_tilemap.tres" id="7_m0b1m"]
+[ext_resource type="TileSet" uid="uid://dsu2pint5d2rc" path="res://assets/art/tilesets/main_tilemap.tres" id="7_m0b1m"]
 
 [sub_resource type="Curve2D" id="Curve2D_ldh6n"]
 _data = {
