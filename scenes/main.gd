@@ -57,6 +57,8 @@ func _on_mob_spawn_timer_timeout() -> void:
 	if(shiny_skeleton_flag == 20):
 		enemy.scale*=2
 		enemy.health_points = 100
+		var dragon_sprite_frames = load("res://assets/art/dragon.tres")
+		enemy.sprite.sprite_frames = dragon_sprite_frames
 	add_child(enemy)
 	
 	if difficulty_timer > 5:

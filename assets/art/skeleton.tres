@@ -1,0 +1,52 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://dl4scgk18tpli"]
+
+[ext_resource type="Texture2D" uid="uid://c5okxm7atyx6t" path="res://assets/art/mrbones.png" id="1_fphw6"]
+[ext_resource type="Texture2D" uid="uid://bo2d2ljusc0gk" path="res://assets/art/mrboneswalk-Sheet.png" id="2_j72aq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ox1i"]
+atlas = ExtResource("1_fphw6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxkl0"]
+atlas = ExtResource("2_j72aq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as0vu"]
+atlas = ExtResource("2_j72aq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x7kb"]
+atlas = ExtResource("2_j72aq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3jxr"]
+atlas = ExtResource("2_j72aq")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ox1i")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxkl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_as0vu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x7kb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3jxr")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

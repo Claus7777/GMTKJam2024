@@ -113,7 +113,7 @@ position = Vector2(4, -75)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_acepx")
 animation = &"idle"
-frame_progress = 0.990194
+frame_progress = 0.170098
 script = ExtResource("6_w4yi3")
 
 [node name="HandBody2D" type="StaticBody2D" parent="CharacterBody2D"]
