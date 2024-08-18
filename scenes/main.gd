@@ -44,7 +44,7 @@ func _on_mob_spawn_timer_timeout() -> void:
 	difficulty_timer += 1
 	var enemy = enemy_scene.instantiate()
 	
-	var enemy_spawn_location = $EnemySpawner/EnemySpawnLocation
+	var enemy_spawn_location = $Sweeta/CharacterBody2D/Camera2D/EnemySpawner/EnemySpawnLocation
 	enemy_spawn_location.progress_ratio = randf()
 	
 	enemy.position = enemy_spawn_location.position
