@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dd7gp117583gp"]
+[gd_scene load_steps=10 format=3 uid="uid://dd7gp117583gp"]
 
 [ext_resource type="PackedScene" uid="uid://yvshx12gqkta" path="res://scenes/sweeta.tscn" id="1_4ski7"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_qk5f8"]
@@ -6,103 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://bpwo6lj5k72mx" path="res://scripts/icon.svg" id="4_of46l"]
 [ext_resource type="Script" path="res://scenes/levelup_manager.gd" id="4_xa0oa"]
 [ext_resource type="Resource" uid="uid://dtngb7jivc2k8" path="res://scripts/items/hedgehog/hedgehog.tres" id="5_oopob"]
-[ext_resource type="Texture2D" uid="uid://c1mn0m1sjjwvu" path="res://assets/art/tilesets/TilesetGrasslands.png" id="7_8bldn"]
+[ext_resource type="Resource" uid="uid://dykse826rabic" path="res://scripts/items/boots/boots.tres" id="6_20k4c"]
+[ext_resource type="TileSet" uid="uid://nbddtf4q354q" path="res://assets/art/tilesets/main_tilemap.tres" id="7_m0b1m"]
 
 [sub_resource type="Curve2D" id="Curve2D_ldh6n"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -41, -56, 0, 0, 0, 0, 1321, -56, 0, 0, 0, 0, 1320, 753, 0, 0, 0, 0, -40, 751, 0, 0, 0, 0, -40, -56)
 }
 point_count = 5
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dtft"]
-texture = ExtResource("7_8bldn")
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-5:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-13:1/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-5:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-13:2/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-5:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-13:3/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-5:4/0 = 0
-9:4/0 = 0
-10:4/0 = 0
-11:4/0 = 0
-13:4/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-9:5/0 = 0
-10:5/0 = 0
-11:5/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-9:6/0 = 0
-10:6/0 = 0
-11:6/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-6:7/0 = 0
-8:7/0 = 0
-9:7/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-6:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-11:8/0 = 0
-12:8/0 = 0
-13:8/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-2:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -6.75, -6.25, -6.5, -6.25, -3.25, -8, -1.5, -8, 2.25, -6.625, 3.625, -5, 4.625, 4.875, 4.75, 5.5, 3.5, 8, 3.75, 8, -0.5, 6.625, -0.875, 6.5, -3, 5.5, -3.625, 6, -6, 8, -6.375, 8, -8, -8, -8)
-3:9/0 = 0
-4:9/0 = 0
-6:9/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-11:9/0 = 0
-12:9/0 = 0
-13:9/0 = 0
-4:10/0 = 0
-6:10/0 = 0
-8:10/0 = 0
-9:10/0 = 0
-11:10/0 = 0
-12:10/0 = 0
-13:10/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_n75sf"]
-physics_layer_0/collision_layer = 5
-sources/0 = SubResource("TileSetAtlasSource_2dtft")
 
 [node name="Main" type="Node" node_paths=PackedStringArray("player_node", "levelup_manager")]
 script = ExtResource("1_qk5f8")
@@ -131,7 +42,7 @@ script = ExtResource("4_xa0oa")
 player_node = NodePath("../Sweeta")
 control_node = NodePath("../Camera2D/Control")
 item_list = NodePath("../Camera2D/Control/ItemList")
-upgrade_itens_array = [ExtResource("5_oopob")]
+upgrade_itens_array = [ExtResource("5_oopob"), ExtResource("6_20k4c")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(641, 359)
@@ -180,8 +91,8 @@ item_1/icon = ExtResource("4_of46l")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAAIAAYAAAABAAcAAAAJAAYAAAACAAcAAAAKAAYAAAADAAcAAAAIAAcAAAABAAgAAAAIAAgAAAABAAkAAAAJAAcAAAACAAgAAAAJAAgAAAACAAkAAAAKAAcAAAADAAgAAAAKAAgAAAADAAkAAAA=")
-tile_set = SubResource("TileSet_n75sf")
+tile_map_data = PackedByteArray(0, 0, 12, 0, 7, 0, 1, 0, 0, 0, 0, 0, 1, 0, 11, 0, 7, 0, 1, 0, 0, 0, 0, 0, 1, 0, 10, 0, 7, 0, 1, 0, 0, 0, 0, 0, 1, 0)
+tile_set = ExtResource("7_m0b1m")
 
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]
 [connection signal="item_clicked" from="Camera2D/Control/ItemList" to="LevelupManager" method="_on_item_list_item_clicked"]

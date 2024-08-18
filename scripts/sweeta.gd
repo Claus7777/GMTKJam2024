@@ -10,6 +10,7 @@ var character_state: Character_States = Character_States.ACTIVE
 signal leveled_up(level)
 
 @export var SPEED = 300.0
+@export var SPEED_CAP = 500.0
 @export var hitbox_scene: PackedScene
 @export var hitbox_size_multiplier:float = 2
 @export var experience = 0.0
@@ -62,8 +63,6 @@ func _process(delta: float) -> void:
 	if level_dictionary.has(next_level):
 		if experience >= level_dictionary[next_level]:
 			levelup()
-	
-
 
 func _physics_process(delta: float) -> void:
 	match character_state:
@@ -149,7 +148,7 @@ func _on_attack_timeout() -> void:
 	if sword_node.visible == false:
 		sword_node.visible = true
 
-func take_damage(damage_taken):
+func player_take_damage(damage_taken):
 	if not isInvincible:
 		invincibility_timer.start()
 		isInvincible = true

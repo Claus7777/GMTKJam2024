@@ -42,7 +42,8 @@ func _physics_process(delta: float) -> void:
 			if position.distance_to(player.global_position) > 10:
 				var collider = move_and_collide(velocity * delta)
 				if collider:
-					player_hit.emit(damage)
+					if collider.get_collider().has_method("player_take_damage"):
+						player_hit.emit(damage)
 			
 		Enemy_States.SLEEPING:
 			pass

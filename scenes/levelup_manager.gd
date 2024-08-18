@@ -29,16 +29,24 @@ func _process(delta: float) -> void:
 	
 func level_up_menu(level: int):
 	var random_item_chooser
+	var random_item_chooser2
+	
 	state_to_emit = Game_States.SLEEPING
 	state_change.emit(state_to_emit)
-	random_item_chooser = randi_range(0, upgrade_itens_array.size()-1)
+	random_item_chooser = randi_range(1, upgrade_itens_array.size()) - 1
+	
 	item_list.set_item_icon(0, upgrade_itens_array[random_item_chooser].icon)
 	item_list.set_item_text(0, upgrade_itens_array[random_item_chooser].name)
 	options[0] = random_item_chooser
 	
-	random_item_chooser = randi_range(0, upgrade_itens_array.size()-1)
-	item_list.set_item_icon(1, upgrade_itens_array[random_item_chooser].icon)
-	item_list.set_item_text(1, "Bluejeeta")
+	random_item_chooser2 = randi_range(1, upgrade_itens_array.size()) -1
+	
+	while random_item_chooser2 == random_item_chooser:
+		random_item_chooser2 = randi_range(1, upgrade_itens_array.size()) - 1 
+
+	
+	item_list.set_item_icon(1, upgrade_itens_array[random_item_chooser2].icon)
+	item_list.set_item_text(1, upgrade_itens_array[random_item_chooser2].name)
 	options[1] = random_item_chooser
 	control_node.visible = true
 	pass
@@ -51,3 +59,6 @@ func _on_item_list_item_clicked(index: int, at_position: Vector2, mouse_button_i
 	item_script.item_effect()
 	state_change.emit(state_to_emit)
 	control_node.visible = false
+	item_list.deselect_all()
+	
+	

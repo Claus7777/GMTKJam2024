@@ -51,7 +51,7 @@ func _on_mob_spawn_timer_timeout() -> void:
 	var enemy_exp = enemy.experience_on_kill;
 	enemy.monster_died.connect(player_node.get_child(0).earn_exp.bind())
 	state_change.connect(enemy.change_state.bind())
-	enemy.player_hit.connect(player_node.get_child(0).take_damage.bind())
+	enemy.player_hit.connect(player_node.get_child(0).player_take_damage.bind())
 	add_child(enemy)
 	
 	if difficulty_timer > 5:

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dykse826rabic"]
+
+[ext_resource type="Texture2D" uid="uid://ctmadd6chk4f" path="res://assets/art/Longsword.png" id="1_3fd1y"]
+[ext_resource type="Script" path="res://resources/item_script.gd" id="1_thjc3"]
+[ext_resource type="Script" path="res://scripts/items/boots/boots_script.gd" id="2_e6wka"]
+
+[resource]
+script = ExtResource("1_thjc3")
+name = "Boots"
+description = "More Movement Speed"
+icon = ExtResource("1_3fd1y")
+item_script = ExtResource("2_e6wka")
