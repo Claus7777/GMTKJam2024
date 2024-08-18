@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://cfyimj62xdckr"]
+[gd_scene load_steps=10 format=4 uid="uid://cfyimj62xdckr"]
 
 [ext_resource type="Texture2D" uid="uid://c1mn0m1sjjwvu" path="res://assets/art/tilesets/TilesetGrasslands.png" id="1_8tvjt"]
 [ext_resource type="Script" path="res://tronco.gd" id="2_kd732"]
+[ext_resource type="Texture2D" uid="uid://blklxd8ekaqyr" path="res://assets/art/tilesets/TilesetOverworld.png" id="3_wgdry"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ju8u2"]
 texture = ExtResource("1_8tvjt")
@@ -182,8 +183,39 @@ texture = ExtResource("1_8tvjt")
 12:10/0 = 0
 13:10/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vi3y1"]
+texture = ExtResource("3_wgdry")
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+9:2/0 = 0
+11:2/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+5:5/0 = 0
+7:5/0 = 0
+9:5/0 = 0
+11:5/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_m5pfw"]
 sources/0 = SubResource("TileSetAtlasSource_wma76")
+sources/1 = SubResource("TileSetAtlasSource_vi3y1")
 
 [node name="Tronco" type="TileMapLayer"]
 texture_filter = 1

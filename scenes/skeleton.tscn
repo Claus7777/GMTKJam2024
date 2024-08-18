@@ -16,7 +16,7 @@ script = ExtResource("1_qjnrx")
 texture_filter = 1
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("2_akd12")
-animation = &"walk"
+animation = &"idle"
 script = ExtResource("3_rwv5v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

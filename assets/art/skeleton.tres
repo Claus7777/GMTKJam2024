@@ -1,7 +1,12 @@
-[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://dl4scgk18tpli"]
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://dl4scgk18tpli"]
 
+[ext_resource type="Texture2D" uid="uid://dnauc1cygb6ov" path="res://assets/art/DRAGON.png" id="1_ec68o"]
 [ext_resource type="Texture2D" uid="uid://c5okxm7atyx6t" path="res://assets/art/mrbones.png" id="1_fphw6"]
 [ext_resource type="Texture2D" uid="uid://bo2d2ljusc0gk" path="res://assets/art/mrboneswalk-Sheet.png" id="2_j72aq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl1ti"]
+atlas = ExtResource("1_ec68o")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ox1i"]
 atlas = ExtResource("1_fphw6")
@@ -25,6 +30,14 @@ region = Rect2(96, 0, 32, 32)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl1ti")
+}],
+"loop": true,
+"name": &"dragon",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6ox1i")
